@@ -1,6 +1,7 @@
 <?php 
-    
-
+   
+     require('Update.php');   
+ 
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,9 +58,9 @@
 
 
 
-
+/*
 graficarPie("container","hola",[{ name: "Touch", colorByPoint: true, data: [{name:"Landscape",y:1}, {name:"portrait",y:2}]}])
-
+*/
      }
    </script>
 
