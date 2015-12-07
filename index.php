@@ -1,72 +1,127 @@
-<?php 
-   
-     require('Update.php');   
- 
-?>
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <style type="text/css"> ${demo.css}</style>
-    <script type="text/javascript" src="js/exporting.js"></script>
-	<title></title>
-</head>
-<body id="container">
-    <div>
-    
-    <H1 style="color:white;">orientation</H1>
-   </div>
-     <h1 id="elh1">toca la pantalla</h1>
- 	
- 	<div id="contain">
- 		<h1 style="font-size: 77px;"></h1>
- 	</div>
+	<head>
+		<title>Progamacion Movil en Web</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<button>Graficar</button>
+	</head>
+	<body style="background: #519839;" id="contain">
+	    
+		
+ 		
+ 
+
    </body>
-   <script type="text/javascript">
-    
-     window.onload = function (){
+		<script> 					  
+			var countLS = 0;
+			var countPtr = 0;
+			var test = window.matchMedia("(orientation: portrait)");//Le enviamos como parametro portrait para que este detectandos
+			
+					
 
-          
-          
-    document.body.addEventListener('touchmove', function(event) {
-  		contain.innerHTML = "<h1>TOUCHMOVE</h1>";
-  		contain.innerHTML += "<h1>"+event.targetTouches.length+"</h1>";
-	}, false);
-
+    var colores = ["#89609E","#B04632", "#0079BF", "#D29034", "#519839"];
+ 	var indiceColor = 0;
 
 
-
-    document.body.addEventListener('touchend', function(event) {
-  		contain.innerHTML = "<h1>TOUCHEND</h1>";
-  		touchstarts = 0;
-
-	}, false);
+ 	var contain = document.getElementById("contain");
+	document.addEventListener('touchstart', manejadorTouchstart, false);
+	document.addEventListener('touchmove', manejadorTouchmove, false);
+	document.addEventListener('touchend', manejadorTouchend, false);
 
 
-    
-    var contain = document.getElementById("contain");
-	var touchstarts = 0;
+	/*function cambiarColor(){
+
+	}*/
+
+	var Handle_Mi_Timer = null;
+    var Contador = 0;	
+	var EventoActual;
+	var noDedos
+
+	function manejadorTouchstart(event){
+        setTimeout(Mi_Timer, 300);
+        EventoActual = "START";
+        noDedos = event.targetTouches.length;
+        document.getElementsByTagName("body")[0].style ='transition: background-color 1s ease, height 2s ease-in 1s;';
+         document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
+        indiceColor++;
+        if(indiceColor==5){ indiceColor=0};
+       	}
 
 
-	document.body.addEventListener('touchstart', function(event){
-		touchstarts++;
-		contain.innerHTML = "<h1>TOUCHSTART</h1>";
-		contain.innerHTML += "<h1>"+touchstarts+"</h1>";
-	}, false);
+	function manejadorTouchmove(event){
+		contain.innerHTML = "<h1 style='font-size: 40px;''>SWIP"+event.targetTouches.length+"</h1>";
+		EventoActual = "SWIP";
+	}
+
+
+    function manejadorTouchend(event) {
+		if (Contador<1 && EventoActual!="TOUCH" && EventoActual!="SWIP"){
+			window.clearInterval(Handle_Mi_Timer);
+        	Handle_Mi_Timer = null;
+			contain.innerHTML = "<h1 style='font-size: 40px;'>TAP</h1>";
+        	Contador = 0;
+        	EventoActual = "TAP";
+        	if(indiceColor==5){
+                        indiceColor=0;
+                     }
+		}
+		Contador = 0;
+		if(event.targetTouches.length>=1){
+			if(EventoActual=="TOUCH"){
+				contain.innerHTML = "<h1 style='font-size: 40px;'>TOUCH"+ event.targetTouches.length +"</h1>";	
+			}
+			if(indiceColor==5){
+                        indiceColor=0;
+                     }
+		}
+		else{
+			//volvemos a portrait o landscape
+			//contain.innerHTML = "<h1 style='font-size: 40px;'>PORTRAIT</h1>";
+		}
+	}
+
+
+	function Mi_Timer() {
+        Contador++;
+        if(Contador>=1 && EventoActual!="TAP" && EventoActual!="SWIP"){
+        	contain.innerHTML = "<h1 style='font-size: 40px;'>TOUCH"+ noDedos +"</h1>";
+        	window.clearInterval(Handle_Mi_Timer);
+        	Handle_Mi_Timer = null;
+        	EventoActual="TOUCH";
+        }
+        Contador = 0;
+    }
+   
 
 
 
-/*
-graficarPie("container","hola",[{ name: "Touch", colorByPoint: true, data: [{name:"Landscape",y:1}, {name:"portrait",y:2}]}])
-*/
-     }
-   </script>
+       	test.addListener(function(evento) {
+				  if(evento.matches)   { //Detecta en que tipo de direccion esta
+				    document.getElementById('contain').innerHTML= "<h1>PORTRAIT</h1>";
+				    countPtr +=1;
+					//alert("port: " + countPtr);
+     
+                   document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
+        indiceColor++;
+        if(indiceColor==5){ indiceColor=0};
+				  }
+				  else {
+				    document.getElementById('contain').innerHTML= "<h1>LANDSCAPE</h1>";
+					countLS +=1; //Cuando detecte aumenta a 1
+					//alert("land: " + countLS);
+		   document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
+         indiceColor++;
+        if(indiceColor==5){ indiceColor=0};			
+		
+				  }
+				});
 
-   <script type="text/javascript" src="graficar_pie.js"></script>
-   <script type="text/javascript" src="js/data.js"></script>
-   <script type="text/javascript" src="js/drilldown.js"></script>
-   <script type="text/javascript" src="js/highcharts.js"></script>
-  
+
+
+		</script>
+
+	
 </html>

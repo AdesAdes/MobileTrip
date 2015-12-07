@@ -36,6 +36,6 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 
    }
  */
-    return $html;
+    echo $html;
 
 ?>
