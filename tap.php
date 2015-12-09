@@ -7,11 +7,11 @@
 
  
 
-$html='';
+
   
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 
-   $html.= '{name:"Tap",y:'.$line["CantTap"].'},';
+   $html = '{"name":"Tap","y":'.$line["CantTap"].'}';
 
 }
   
@@ -25,7 +25,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
    }
 */ 
  
-  return  $html;
+  echo  $html;
    
 
 ?>

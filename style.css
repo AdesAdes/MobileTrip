@@ -1,5 +1,20 @@
-h1{
+div{
 
     color:white;
-    transition: color 1s ease, height 2s ease-in 1s;
+    font-size:40px;
+    
+}
+
+button{
+
+
+	 top:0;
+	 float: right;
+	 position: relative;
+
+}
+body{
+   
+      transition: background-color 4s ease, height 3s ease-in 2s;
+
 }

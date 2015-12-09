@@ -1,26 +1,6 @@
- <?php 
-           require("Update.php");
- ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Progamacion Movil en Web</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		
-	</head>
-	<body style="background: #519839;" id="contain">
-	   
-		 <div>
-		 	<button><a href="graficar_Eventos.php">Graficar</a></button>
-		 </div>
-
-
-		 <div id="div">
-		 </div>
-   </body>
-   <script> 					  
+<?php 
+?>
+<script> 					  
 	var countLS = 0;
     var countPtr = 0;
     var test = window.matchMedia("(orientation: portrait)");//Le enviamos como parametro portrait para que este detectandos
@@ -45,35 +25,24 @@
         setTimeout(Mi_Timer, 300);
         EventoActual = "START";
         noDedos = event.targetTouches.length;
-       // document.getElementsByTagName("body")[0].style ='transition: background-color 4s ease, height 3s ease-in 2s;';
-        document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
+        document.getElementsByTagName("body")[0].style ='transition: background-color 1s ease, height 2s ease-in 1s;';
+         document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
         indiceColor++;
         if(indiceColor==5){ indiceColor=0};
        	}
 
 
 	function manejadorTouchmove(event){
-
-		  if(event.targetTouches.length<=5){
-                 contain.innerHTML = "SWIP"+event.targetTouches.length;
-		         EventoActual = "SWIP";
-		  }
-		  if(event.targetTouches.length>5){
-               contain.innerHTML = "MultiSwip"+event.targetTouches.length;
-		       EventoActual = "SWIP";
-
-		  }
-		
+		contain.innerHTML = "<h1 style='font-size: 40px;''>SWIP"+event.targetTouches.length+"</h1>";
+		EventoActual = "SWIP";
 	}
-
 
 
     function manejadorTouchend(event) {
 		if (Contador<1 && EventoActual!="TOUCH" && EventoActual!="SWIP"){
 			window.clearInterval(Handle_Mi_Timer);
         	Handle_Mi_Timer = null;
-			contain.innerHTML = "TAP";
-			<?php  ModificarTap();?>
+			contain.innerHTML = "<h1 style='font-size: 40px;'>TAP</h1>";
         	Contador = 0;
         	EventoActual = "TAP";
         	if(indiceColor==5){
@@ -83,19 +52,23 @@
 		Contador = 0;
 		if(event.targetTouches.length>=1){
 			if(EventoActual=="TOUCH"){
-				contain.innerHTML = "TOUCH"+ event.targetTouches.length;	
+				contain.innerHTML = "<h1 style='font-size: 40px;'>TOUCH"+ event.targetTouches.length +"</h1>";	
 			}
 			if(indiceColor==5){
                         indiceColor=0;
                      }
-		}	
+		}
+		else{
+			//volvemos a portrait o landscape
+			//contain.innerHTML = "<h1 style='font-size: 40px;'>PORTRAIT</h1>";
+		}
 	}
 
 
 	function Mi_Timer() {
         Contador++;
         if(Contador>=1 && EventoActual!="TAP" && EventoActual!="SWIP"){
-        	contain.innerHTML = "TOUCH"+ noDedos;
+        	contain.innerHTML = "<h1 style='font-size: 40px;'>TOUCH"+ noDedos +"</h1>";
         	window.clearInterval(Handle_Mi_Timer);
         	Handle_Mi_Timer = null;
         	EventoActual="TOUCH";
@@ -104,29 +77,29 @@
     }
    
 
-       orientacion();
-      function orientacion(){
+
+
        	test.addListener(function(evento) {
 				  if(evento.matches)   { //Detecta en que tipo de direccion esta
-				    document.getElementById('div').innerHTML= "PORTRAIT";
+				    document.getElementById('div').innerHTML= "<h1>PORTRAIT</h1>";
 				    countPtr +=1;
-					//alert("port: " + countPtr);     
+					//alert("port: " + countPtr);
+     
                    document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
         indiceColor++;
         if(indiceColor==5){ indiceColor=0};
 				  }
 				  else {
-				    document.getElementById('div').innerHTML= "LANDSCAPE";
+				    document.getElementById('div').innerHTML= "<h1>LANDSCAPE</h1>";
 					countLS +=1; //Cuando detecte aumenta a 1
-					//alert("land: " + countLS);.		
-		 document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
+					//alert("land: " + countLS);
+		   document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
          indiceColor++;
         if(indiceColor==5){ indiceColor=0};			
 		
 				  }
 				});
 
-  }
+
 
 		</script>
-</html>

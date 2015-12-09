@@ -14,12 +14,12 @@ $html = "";
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
     
 
-   $html.=   '{name:"Landscape",y:'.$line["landscape"].'},
-              {name:"portrait",y:'.$line["portrait"].'}';
+   $html.=   '{"name":"Landscape","y":'.$line["landscape"].'},
+              {"name":"portrait","y":'.$line["portrait"].'}';
 
 
 }
    
-    return $html;
+   echo  $html;
 
 ?>

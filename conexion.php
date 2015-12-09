@@ -2,7 +2,7 @@
 /*
   $server = 'mysql12.000webhost.com';
   $user ='a7492933_mobile';
-  $pass ='';
+  $pass ='dilcia91993';
   $db ='a7492933_mobile';
   */
 
