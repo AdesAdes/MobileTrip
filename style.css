@@ -1,20 +1,81 @@
-div{
+@media only screen and (orientation:portrait){
+    #div{
+			position: absolute;
+			top:30%;
+			left:8%;
+			margin-top:15%;
+			padding:5%;
+			text-align: center;
+			color:white;
+			font-size:400%;
+			-webkit-text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
+			-moz-text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
+			text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
+			text-shadow: 4px 2px  5px black;
 
-    color:white;
-    font-size:40px;
-    
+			/*	transition:text-shadow 3s ease, height 2s ease 1s;
+			transition-property: opacity, left, top, height;
+			transition-duration: 1s, 0.5s, 2s, 3s;	*/
+			/*	 transition: text-shadow 3s linear, linear 1s linear 1s;
+			transition-property: opacity, top;
+			transition-duration:   .5s;	*/
+    }
 }
+
+
+@media only screen and (orientation:landscape){
+    #div{
+			position: absolute;
+			top:1%;
+			left:10%;
+			margin-top:9%;
+			padding:10%;
+			text-align: center;
+			color:white;
+			font-size:400%;
+			-webkit-text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
+			-moz-text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
+			text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
+			text-shadow: 4px 2px  5px black;
+			/* transition: text-shadow 3s linear, linear 1s linear 1s;
+			transition-property: opacity, top;
+			transition-duration:   .5s;	*/
+    }
+}
+
+
 
 button{
-
-
-	 top:0;
-	 float: right;
-	 position: relative;
-
+			font-size: 150%;
+			color:white;
+			padding: 0px;
+			margin: 0px;
+			border:0px;
+			width:100%;
+			height:100%;
+			top:0;
+			position: relative;
+			background-color: transparent;
 }
-body{
-   
-      transition: background-color 4s ease, height 3s ease-in 2s;
 
+
+button:hover { 
+			font-size: 150%;
+			color:white;
+			padding: 0px;
+			margin: 0px;
+			border:0px;
+			background-color: yellow;
+			width:100%;
+			height:100%;
+}
+
+
+body{
+			transition: background-color .7s ease, height .8s ease-in .9s;
+}
+
+.div{
+
+  		  opacity:2px;
 }
