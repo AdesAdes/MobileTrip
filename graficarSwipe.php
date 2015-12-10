@@ -12,7 +12,7 @@
 </body>
 <script type="text/javascript">
 $(function(){
-        graficarOrientation();
+        graficarSwipe();
     });
 
 	

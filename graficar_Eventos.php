@@ -18,7 +18,7 @@ ${demo.css}
    <script type="text/javascript" src="funciones.js"></script>
    <script type="text/javascript">
        var pie = "[{name: \"B#r#a#n#d#s\",colorByPoint: true,data: [D#a#t#o#s]}]";
-     function GraficarSwipe(){
+     function graficarSwipe(){
         Ajax('Swipe.php',function(datos)
       {
           var json = JSON.parse(datos);

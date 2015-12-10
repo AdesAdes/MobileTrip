@@ -7,8 +7,8 @@
   */
 
   $server = 'localhost';
-  $user ='root';
-  $pass ='';
+  $user ='loot';
+  $pass ='insomnificante';
   $db ='movil';
 
   if(mysqli_error($link = mysqli_connect($server,$user,$pass,$db)))
