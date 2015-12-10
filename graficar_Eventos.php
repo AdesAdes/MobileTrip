@@ -6,7 +6,8 @@
 	<title></title>
 </head>
 <body>
-   <div id="Contenedor"></div>
+<div id="Contenedor" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </body>
    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<style type="text/css">
@@ -17,19 +18,6 @@ ${demo.css}
    <script type="text/javascript" src="funciones.js"></script>
    <script type="text/javascript">
        var pie = "[{name: \"B#r#a#n#d#s\",colorByPoint: true,data: [D#a#t#o#s]}]";
-
- 
-     $(function(){
-
-
-     GraficarTapVsTouch();
-     
-     // graficarTouchs();
-     //graficarOrientation();
-
-       //GraficarSwipe();
-      
-    });
      function GraficarSwipe(){
         Ajax('Swipe.php',function(datos)
       {
@@ -61,7 +49,15 @@ ${demo.css}
           graficarColumn("Contenedor","Orientacion del Movil","",['Orientacion'],"Cantidad",json);
       });
     }
+  
 
+     function AllEvents(){
+        Ajax('allEvents.php',function(datos)
+      {
+          var json = JSON.parse(datos);
+          graficarPie('Contenedor',"Comparation all Events",json);
+      });
+     }
    </script>
   
 </html>

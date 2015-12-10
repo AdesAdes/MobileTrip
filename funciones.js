@@ -49,7 +49,7 @@ function graficarPie(contenedor,titulo,dataPie) {
 		series: [{
 			name: "Brands",
 			colorByPoint: true,
-			data: [dataPie]
+			data:dataPie
 		}]
 	});
 }

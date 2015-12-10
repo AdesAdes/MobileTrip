@@ -85,11 +85,11 @@
     <h1 style='font-size:200%;'>Menu<h1>
 	    <ul>
 	        
-	        <li><a href="graficar_Eventos.php">Touch               </a></li>
-	    	<li><a href="">Touch Vs Tap        </a></li>
-	    	<li><a href="">Swipe Vs MultiSwipe </a></li>
-	    	<li><a href="">Landscape Vs Portrait </a></li>
-	    	<li><a href="">all events</a></li>
+	        <li><a href="graficarTouch.php">Touch               </a></li>
+	    	<li><a href="graficarTapVsTouch.php">Touch Vs Tap        </a></li>
+	    	<li><a href="graficarSwipe.php">Swipe Vs MultiSwipe </a></li>
+	    	<li><a href="graficarOrientacion.php">Landscape Vs Portrait </a></li>
+	    	<li><a href="graficarAllEvents.php">all events</a></li>
 	    </ul>
     </div>
    </nav>

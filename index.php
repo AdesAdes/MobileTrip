@@ -12,7 +12,7 @@
 <body style="background: #519839;" id="contain">
 
 		<div id="container">
-		<button>Graficar</button>
+		<button onclick="MenuGraficar()">Graficar</button>
 		</div>
 		<div id="div">
 
@@ -138,7 +138,6 @@
 						document.getElementsByTagName("body")[0].style.background = colores[indiceColor];
 						indiceColor++;
 						if(indiceColor==5){ indiceColor=0};
-
 						//llamando al archivo UpdateOrientation para modificar la tabla orientation
 						//se envia TipoDeOrientation=1 y cantidad=1
 						Ajax("UpdateOrientation.php?TipoDeOrientacion=1&cantdad=1",
