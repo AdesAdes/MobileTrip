@@ -23,49 +23,45 @@ ${demo.css}
 
 
      GraficarTapVsTouch();
+     
+     // graficarTouchs();
+     //graficarOrientation();
+
+       //GraficarSwipe();
       
     });
      function GraficarSwipe(){
         Ajax('Swipe.php',function(datos)
       {
-         /* 
-          var datos = datos.substr(0, datos.length-1);
-          pie = pie.replace("B#r#a#n#d#s", "Tipo de tap");
-          pie = pie.replace("D#a#t#o#s", datos);
-          */
-         // console.log(datos);
-          //var datas  = CreateData(datos,"Hola");
-         // alert(datos);
           var json = JSON.parse(datos);
-          graficarPie('Contenedor',"Tap vs Touch",json);
-         //graficarPie(contenedor,titulo,dataPie)
-
-
+          graficarPie('Contenedor',"Swipe's",json);
       });
      }
      function GraficarTapVsTouch(){
 
 
-      Ajax('tap.php',function(datos)
+      Ajax('tapVstouch.php',function(datos)
       {
-         /* 
-          var datos = datos.substr(0, datos.length-1);
-          pie = pie.replace("B#r#a#n#d#s", "Tipo de tap");
-          pie = pie.replace("D#a#t#o#s", datos);
-          */
-         // console.log(datos);
-          //var datas  = CreateData(datos,"Hola");
-         // alert(datos);
           var json = JSON.parse(datos);
           graficarPie('Contenedor',"Tap vs Touch",json);
-         //graficarPie(contenedor,titulo,dataPie)
-
-
-      });
-
-
+         });
      }
-   
+     function graficarTouchs()
+     {
+        Ajax("touch.php",function(datos){
+            var json = JSON.parse(datos);
+            graficarColumn("Contenedor","Touch's","",['Touchs'],"Cantidad",json);
+        });
+     }
+      
+    function graficarOrientation()
+    {
+      Ajax("orientation.php",function(datos){
+        var json = JSON.parse(datos);
+          graficarColumn("Contenedor","Orientacion del Movil","",['Orientacion'],"Cantidad",json);
+      });
+    }
+
    </script>
   
 </html>

@@ -12,6 +12,7 @@
 			-moz-text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
 			text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
 			text-shadow: 4px 2px  5px black;
+			z-index: -1;
 
 			/*	transition:text-shadow 3s ease, height 2s ease 1s;
 			transition-property: opacity, left, top, height;
@@ -37,6 +38,7 @@
 			-moz-text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
 			text-shadow: 12px 0px 48px -1px rgba(0,0,0,0.69);
 			text-shadow: 4px 2px  5px black;
+			 z-index: -1;
 			/* transition: text-shadow 3s linear, linear 1s linear 1s;
 			transition-property: opacity, top;
 			transition-duration:   .5s;	*/
@@ -64,8 +66,7 @@ button:hover {
 			color:white;
 			padding: 0px;
 			margin: 0px;
-			border:0px;
-			background-color: yellow;
+			border:0px;		
 			width:100%;
 			height:100%;
 }
@@ -75,7 +76,9 @@ body{
 			transition: background-color .7s ease, height .8s ease-in .9s;
 }
 
-.div{
+#container{
+            width:100%;
+			height:100%;
+   
 
-  		  opacity:2px;
 }

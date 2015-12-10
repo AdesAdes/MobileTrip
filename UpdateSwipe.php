@@ -1,6 +1,8 @@
 <?php
 
    require('conexion.php');
+
+   $Swipe = $_GET["swipe"];
    ModificarSwipe($Swipe);
   function ModificarSwipe($Swipe){
      $query = 'SELECT `idSwipe`, `Swipe1`, `Swipe2`, `Swipe3`, `Swipe4`, `Swipe5`, `multiswipe` FROM `swipe`';

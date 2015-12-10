@@ -1,7 +1,7 @@
 <?php
     require('conexion.php');
     $TipoDeOrientacion = $_GET['TipoDeOrientacion'];
-    $Cantdad = $_GET['Cantdad'];
+    $Cantdad = $_GET['cantdad'];
     ModificarOrientacion($TipoDeOrientacion, $Cantdad);
 
     function ModificarOrientacion($TipoDeOrientacion,$Cantdad){
@@ -19,7 +19,7 @@
         $result1 = mysql_query($query1)or die('Consulta fallida: ' . mysql_error());
       
         break;
-  case 1:
+  case 2:   
         $Landscape10 = $Landscape1+$Cantdad;
         $query1 =  'UPDATE `orientation` SET 
                    `landscape`= '. $Landscape10.' WHERE `idorientation`= 1';
